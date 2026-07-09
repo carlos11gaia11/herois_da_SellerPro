@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heróis Seller Pro</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<div id="app">
+  <div class="topbar">
+    <div class="brand"><div class="brand-mark">SP</div><div>Heróis Seller Pro</div></div>
+    <div class="status" id="statusBar">
+      <span class="pill">Selecione um herói</span>
+      <span class="pill">Controles: A/D, W, J, K, L</span>
+    </div>
+  </div>
+  <div id="wrap">
+    <canvas id="game" width="960" height="540"></canvas>
+    <div class="toast" id="toast"></div>
+
+    <section class="overlay show" id="menu">
+      <div class="menu-head">
+        <div>
+          <h1>Heróis Seller Pro</h1>
+          <p class="subtitle">Jogo de plataforma 2D em HTML + JavaScript. Escolha um dos 10 heróis, avance por 10 fases com 10 telas cada, derrote monstros, colete power-ups e enfrente o Subboss e o Super Boss.</p>
+        </div>
+        <div class="btns" style="margin-top:0">
+          <button id="startBtn">Iniciar jogo</button>
+          <button class="secondary" id="soundBtn">Som: ligado</button>
+        </div>
+      </div>
+      <div class="code-area">
+        <div class="code-card">
+          <b>Códigos secretos</b>
+          <p>Digite um código para liberar personagens ou modo programador.</p>
+          <div class="code-row">
+            <input id="codeInput" type="text" placeholder="Digite o código" autocomplete="off" />
+            <button id="codeBtn" type="button">Liberar</button>
+          </div>
+        </div>
+        <div class="creative-panel" id="creativePanel">
+          <b>Modo Programador</b>
+          <p>Edita os atributos do herói selecionado e inicia direto na fase final.</p>
+          <div class="creative-grid">
+            <label>Vida <input id="creativeHp" type="number" min="1" value="900" /></label>
+            <label>Dano <input id="creativeDmg" type="number" min="1" value="90" /></label>
+            <label>Velocidade <input id="creativeSpeed" type="number" min="0.5" step="0.1" value="8" /></label>
+            <label>Mana <input id="creativeMana" type="number" min="0" value="600" /></label>
+            <label>Regen Vida <input id="creativeHpRegen" type="number" min="0" step="0.01" value="0.2" /></label>
+            <label>Regen Mana <input id="creativeManaRegen" type="number" min="0" step="0.01" value="3" /></label>
+            <label>Pisão <input id="creativeStomp" type="number" min="0" value="80" /></label>
+          </div>
+          <button id="creativeApplyBtn" type="button">Aplicar e ir para fase final</button>
+        </div>
+      </div>
+      <div class="cards" id="heroCards"></div>
+      <div class="help">
+        <div><span class="kbd">A/D</span> ou <span class="kbd">←/→</span><br>andar para esquerda/direita</div>
+        <div><span class="kbd">W</span> ou <span class="kbd">Espaço</span><br>pular e pisar nos inimigos</div>
+        <div><span class="kbd">J</span> ataque · <span class="kbd">K</span>/<span class="kbd">L</span><br><span class="kbd">I</span>/<span class="kbd">O</span> habilidades extras</div>
+        <div><span class="kbd">P</span> pausa · <span class="kbd">R</span> reiniciar<br>chegue ao portal no fim</div>
+      </div>
+    </section>
+
+    <section class="overlay" id="message">
+      <div class="panel">
+        <h1 id="messageTitle">Fase concluída</h1>
+        <p id="messageText">Continue para a próxima fase.</p>
+        <div class="btns" style="justify-content:center">
+          <button id="continueBtn">Continuar</button>
+          <button class="secondary" id="backMenuBtn">Menu</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<script src="assets/js/game.js"></script>
+</body>
+</html>
